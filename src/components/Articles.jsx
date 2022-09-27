@@ -11,7 +11,7 @@ useEffect(() => {
         setArticles(articles);
     })
     .catch(err => {
-        // 400 or 500 errors here
+        console.log(err)
     })
 }, []);
 
