@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+.Articles {
+  text-align: left;
+  list-style-type: none;
+  background-color: white;
+  color: black;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +43,44 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 20;
+  overflow: hidden;
+  background-color: rgb(209, 126, 184);
+
+}
+
+.ul {
+  display: flex;
+  list-style-type: none;
+
+}
+
+
+.li {
+  float: center;
+}
+
+.li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 40px;
+  text-decoration: none;
+  align-content: center;
+}
+
+/* Change the link color to #111 (black) on hover */
+.li a:hover {
+  background-color: #111;
+}
+
+
+
+
