@@ -15,8 +15,6 @@ useEffect(() => {
     })
 }, []);
 
-console.log(articles, '<- articles')
-
 return (
     <main>
         <ul className='Articles'>
