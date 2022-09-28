@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { getTopics } from '../utils/api';
 import { Link } from 'react-router-dom';
 
 const Topics = () => {
@@ -7,9 +7,8 @@ const Topics = () => {
     const [isLoading, setIsLoading] = useState(true);
 
 useEffect(() => {
-    axios
-    .get('https://ursula-nc.herokuapp.com/api/topics')
-    .then(({ data: { topics } }) => {
+    getTopics()
+    .then(({ topics }) => {
         setTopics(topics);
         setIsLoading(false);
     })

@@ -1,21 +1,23 @@
-import axios from 'axios';
-import { useEffect, useState, useParams } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
+import { getArticles } from '../utils/api';
+
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const {topic} = useParams();
 
-useEffect(() => {
-    axios
-    .get('https://ursula-nc.herokuapp.com/api/articles')
-    .then(({ data: { articles } }) => {
-        setArticles(articles);
-        setIsLoading(false);
+    useEffect(() => {
+        getArticles(topic)
+        .then(({ articles}) => {
+            setArticles(articles)
+            setIsLoading(false);
+        })
+        .catch(err => {
+            console.log(err)
     })
-    .catch(err => {
-        console.log(err)
-    })
-}, []);
+}, [topic]);
 
 if (isLoading) return <p className='loading'>Loading...</p>
 

@@ -26,6 +26,3 @@ function App() {
 
 export default App;
 
-{/* <Route path='/reviews'element={<AllReviews />}/>
-    <Route path='/categories' element={<Categories/>}/>
-    <Route path='/reviews/:category'element={<AllReviews />}/> */}
