@@ -18,7 +18,7 @@ function App() {
       <Route path='/articles' element={<Articles />} />
       <Route path='/topics' element={<Topics />} />
       <Route path='*' element={<p>404 not found!</p>} />  
-      <Route path='/articles/?topic' element={<Articles />} />
+      <Route path='/articles/:topic' element={<Articles />} />
     </Routes>
    </div>
   );
