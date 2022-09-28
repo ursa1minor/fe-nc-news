@@ -1,70 +1,31 @@
-.App {
-  text-align: center;
+h1 {
+  padding-left: 80px;
 }
 
-.Articles {
+section  {
   text-align: left;
-  list-style-type: none;
-  background-color: white;
-  color: black;
+  padding-left: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loading {
+  text-align: left;
+  padding-left: 80px;
+  padding-top: 40px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.about  {
+  text-align: left;
+  padding-left: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-.ul {
+.Nav {
   display: flex;
   list-style-type: none;
   margin: 0;
-  padding: 20;
+  padding: 40;
   overflow: hidden;
   background-color: rgb(209, 126, 184);
-
-}
-
-.ul {
-  display: flex;
-  list-style-type: none;
-
-}
-
-
-.li {
-  float: center;
 }
 
 .li {
@@ -73,7 +34,6 @@
   text-align: center;
   padding: 14px 40px;
   text-decoration: none;
-  align-content: center;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -81,6 +41,7 @@
   background-color: #111;
 }
 
-
-
-
+.ul {
+  display: flex;
+  list-style-type: none;
+}
