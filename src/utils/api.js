@@ -6,34 +6,45 @@ const newsApi = axios.create({
 
 export const getArticles = (topic) => {
     if(topic){
-        console.log(topic)
         return newsApi.get(`/articles?topic=${topic}`)
         .then((result) => {
-            console.log(result.data)
             return result.data;
         })
     } else {
         return newsApi.get('/articles').then((result) => {
-            console.log(result.data)
             return result.data;
         })
     }
 }
 
 export const getArticle = (article_id) => {
-    console.log(article_id)
     return newsApi.get(`/articles/${article_id}`)
     .then((result)  => {
-        console.log(result.data, '<- result')
         return result.data;
     })
 }
 
-export const getTopics = () => {
-    
-     return newsApi.get('/topics')
-     .then((result) => {
-        console.log(result.data)
+export const increaseVote = (article_id) => {
+    return newsApi.patch(`/articles/${article_id}`, 
+    { inc_votes : 1 } )
+    .then((result)  => {
         return result.data;
     })
 }
+
+export const decreaseVote = (article_id) => {
+    return newsApi.patch(`/articles/${article_id}`, 
+    { inc_votes : -1 } )
+    .then((result)  => {
+        return result.data;
+    })
+}
+
+export const getTopics = () => { 
+     return newsApi.get('/topics')
+     .then((result) => {
+        return result.data;
+    })
+}
+
+

@@ -1,10 +1,14 @@
+
+
 h1 {
   padding-left: 80px;
+  
 }
 
 section  {
   text-align: left;
   padding-left: 40px;
+  padding-right: 80px;
 }
 
 .loading {
@@ -25,7 +29,7 @@ section  {
   margin: 0;
   padding: 40;
   overflow: hidden;
-  background-color: rgb(209, 126, 184);
+  background-color: rgb(198, 186, 241);
 }
 
 .li {
@@ -33,15 +37,20 @@ section  {
   color: white;
   text-align: center;
   padding: 14px 40px;
-  text-decoration: none;
 }
 
 /* Change the link color to #111 (black) on hover */
 .li a:hover {
-  background-color: #111;
+  background-color: rgb(140, 122, 122);
 }
 
 .ul {
   display: flex;
   list-style-type: none;
 }
+
+button {
+  margin-right: 20px;
+  background-color:rgb(144, 126, 209)
+}
+
