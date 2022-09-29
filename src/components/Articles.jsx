@@ -1,7 +1,8 @@
+import '../App.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getArticles } from '../utils/api';
-
+import { Link } from 'react-router-dom';
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
@@ -15,7 +16,7 @@ const Articles = () => {
             setIsLoading(false);
         })
         .catch(err => {
-            console.log(err)
+            console.log(err);
     })
 }, [topic]);
 
@@ -28,7 +29,7 @@ return (
         {articles.map((article) => {
             return (
                <li key={article.article_id}>
-               <h3>{article.title}</h3>
+               <h3><Link to={`/articles/article/${article.article_id}`}>{article.title}</Link></h3>
                <h4>By {article.author}</h4>
                <p> Topic: {article.topic}</p>
                <br></br>
