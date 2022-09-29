@@ -9,6 +9,7 @@ const Article = () => {
     const [article, setArticle] = useState({});
     const [votes, setVotes] = useState(0); 
     const [isLoading, setIsLoading] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
     const {article_id} = useParams();
 
     useEffect(() => {
@@ -27,22 +28,20 @@ const Article = () => {
 
     const voteOnArticle = (article_id) => {
         setVotes((currVotes) => currVotes + 1)
-        increaseVote(article_id)
-        .then(( {data} ) => {
-            console.log( {data} )
-        })
-    }
-
+        increaseVote(article_id)  
+        };
+    
     const removeVoteOnArticle = (article_id) => {
         setVotes((currVotes) => currVotes - 1)
         decreaseVote(article_id)
-        .then(( {data} ) => {
-            console.log( {data} )
-        })
-    }
+        };
+
+    const handleClick = () => setIsDisabled(true);
+    const plusVote = () => voteOnArticle(article.article_id);
+    const minusVote = () => removeVoteOnArticle(article.article_id);
+
 
 return (
-   
     <section>
         <br></br><br></br>
         <ul className='ul'>
@@ -53,8 +52,12 @@ return (
             <p>{article.body}</p>
             <h5> Comment count: {article.comment_count}</h5>
             <h5> Votes: {votes}</h5>
-            <button onClick={() => voteOnArticle(article.article_id)}>👍</button>  
-            <button onClick={() => removeVoteOnArticle(article.article_id)}>👎 </button>
+            
+    <button 
+        onClick={ plusVote() }>👍
+    </button>  
+   
+    <button onClick={ minusVote() }>👎 </button>
             </li>   
         </ul>
     </section>

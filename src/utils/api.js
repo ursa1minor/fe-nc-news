@@ -20,7 +20,6 @@ export const getArticles = (topic) => {
 export const getArticle = (article_id) => {
     return newsApi.get(`/articles/${article_id}`)
     .then((result)  => {
-        console.log(result.data)
         return result.data;
     })
 }
@@ -44,7 +43,6 @@ export const decreaseVote = (article_id) => {
 export const getTopics = () => { 
      return newsApi.get('/topics')
      .then((result) => {
-        console.log(result.data)
         return result.data;
     })
 }
