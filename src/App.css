@@ -13,6 +13,30 @@ section  {
   padding-left: 80px;
 }
 
+.Comments {
+  padding-left: 0
+}
+
+.CommentAdder {
+  padding-left: 0;
+
+
+
+}
+
+.formLabel {
+  align-items: top;
+}
+
+.formField {
+  align-items: top;
+
+  margin-left: 40px;
+  padding-right: 40px;
+  
+}
+
+
 .loading {
   text-align: left;
   padding-left: 80px;

@@ -40,6 +40,14 @@ export const decreaseVote = (article_id) => {
     })
 }
 
+export const postComment = (article_id, body) => {
+    console.log(article_id, body)
+    return newsApi.post(`/articles/${article_id}/comments`, body)
+    .then((result) => {
+        return result.data;
+    })
+}
+
 export const getComments = (article_id) => {
     return newsApi.get(`/articles/${article_id}/comments`)
     .then((result)  => {

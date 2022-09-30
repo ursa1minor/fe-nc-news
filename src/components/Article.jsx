@@ -6,6 +6,7 @@ import { increaseVote } from '../utils/api';
 import { decreaseVote } from '../utils/api';
 import Comments from './Comments';
 
+
 const Article = () => {
     const [article, setArticle] = useState({});
     const [votes, setVotes] = useState(0); 
@@ -64,8 +65,10 @@ const Article = () => {
             <button onClick={() => downVote(article.article_id)}>👎 </button>
 
             <h5> Comment count: {article.comment_count}</h5>
-         
+
+          
             <Comments />
+
         </section>
         
     )

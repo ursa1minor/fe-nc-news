@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { getComments } from '../utils/api';
 import { Link } from 'react-router-dom';
+import CommentAdder from './CommentAdder';
 
 const Comments = () => {
     const [comments, setComments] = useState([]);
@@ -23,9 +24,12 @@ const Comments = () => {
 if (isLoading) return <p className='loading'>Loading...</p>
 
 return (
-    <section>
+    <section className="Comments">
         <br></br><br></br>
+        
         <ul>
+        <CommentAdder />
+
         {comments.map((comment) => {
             return (
                <li key={comment.article_id}>
@@ -36,6 +40,7 @@ return (
                </li>
                 )
             })}
+            
         </ul>
     </section>
 );
