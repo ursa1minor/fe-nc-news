@@ -9,7 +9,29 @@ const Article = () => {
     const [article, setArticle] = useState({});
     const [votes, setVotes] = useState(0); 
     const [isLoading, setIsLoading] = useState(true);
+    const [hasUpVoted, setHasUpVoted] = useState(false);
+    const [hasDownVoted, setHasDownVoted] = useState(false);    
     const {article_id} = useParams();
+
+    const upVote = (article_id) => {
+        if (!hasUpVoted) {
+            increaseVote(article_id)
+            setVotes((currVotes) =>
+            currVotes + 1)
+
+            setHasUpVoted(true)
+        } 
+    }
+
+    const downVote = (article_id) => {
+        if (!hasDownVoted) {
+            decreaseVote(article_id)
+            setVotes((currVotes) =>
+            currVotes - 1)
+
+            setHasDownVoted(true)
+        }
+    }
 
     useEffect(() => {
         getArticle(article_id)
@@ -25,16 +47,6 @@ const Article = () => {
 
     if (isLoading) return <p className='loading'>Loading...</p>  
 
-    const voteOnArticle = (article_id) => {
-        setVotes((currVotes) => currVotes + 1)
-        increaseVote(article_id)  
-        };
-    
-    const removeVoteOnArticle = (article_id) => {
-        setVotes((currVotes) => currVotes - 1)
-        decreaseVote(article_id)
-        };
-
     return (
         <ul>
         <section>
@@ -47,8 +59,8 @@ const Article = () => {
         </li>           
             <h5> Comment count: {article.comment_count}</h5>
             <h5> Votes: {votes}</h5>
-            <button onClick={() => voteOnArticle(article.article_id)}>👍</button>  
-            <button onClick={() => removeVoteOnArticle(article.article_id)}>👎 </button>
+            <button onClick={() => upVote(article.article_id)}>👍</button>  
+            <button onClick={() => downVote(article.article_id)}>👎 </button>
          
         </section>  
         </ul>
