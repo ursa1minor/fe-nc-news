@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { getArticle } from '../utils/api';
 import { increaseVote } from '../utils/api';
 import { decreaseVote } from '../utils/api';
+import Comments from './Comments';
 
 const Article = () => {
     const [article, setArticle] = useState({});
@@ -48,22 +49,25 @@ const Article = () => {
     if (isLoading) return <p className='loading'>Loading...</p>  
 
     return (
-        <ul>
-        <section>
-        <li>
+        <section className='Article'>
+            <br></br><br></br>
+      
             <h3>{article.title}</h3>
             <h4>By {article.author}</h4>
             <h5> Topic: {article.topic}</h5>
             <p>{article.body}</p>
 
-        </li>           
-            <h5> Comment count: {article.comment_count}</h5>
+        
+            
             <h5> Votes: {votes}</h5>
             <button onClick={() => upVote(article.article_id)}>👍</button>  
             <button onClick={() => downVote(article.article_id)}>👎 </button>
+
+            <h5> Comment count: {article.comment_count}</h5>
          
-        </section>  
-        </ul>
+            <Comments />
+        </section>
+        
     )
 }
 

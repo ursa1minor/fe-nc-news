@@ -1,5 +1,3 @@
-
-
 h1 {
   padding-left: 80px;
   
@@ -9,6 +7,10 @@ section  {
   text-align: left;
   padding-left: 40px;
   padding-right: 80px;
+}
+
+.Article {
+  padding-left: 80px;
 }
 
 .loading {
@@ -53,4 +55,3 @@ button {
   margin-right: 20px;
   background-color:rgb(144, 126, 209)
 }
-

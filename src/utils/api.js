@@ -40,6 +40,13 @@ export const decreaseVote = (article_id) => {
     })
 }
 
+export const getComments = (article_id) => {
+    return newsApi.get(`/articles/${article_id}/comments`)
+    .then((result)  => {
+        return result.data;
+    })
+}
+
 export const getTopics = () => { 
      return newsApi.get('/topics')
      .then((result) => {
