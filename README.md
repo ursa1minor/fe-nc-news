@@ -1,8 +1,16 @@
-# Getting Started with Create React App
+Welcome to my version of Northcoders News!
+
+Project Description:
+
+This Northcoders News user interface was created using the React open-source front-end JavaScript library; the UI interacts with Northcoders News API, which is currently hosted on Heroku at https://ursula-nc.herokuapp.com/.
+
+The GitHub repo for the API is https://github.com/ursa1minor/nc-news.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+During a one-week solo frontend sprint (October 2022), I responded to an ordered series of Kanban tickets, creating frontend functionality which uses endpoints created during a one-week backend sprint several weeks prior.
+
+API calls are made using Axios; Axios functions may be found within utils/api.js.
 
 In the project directory, you can run:
 
