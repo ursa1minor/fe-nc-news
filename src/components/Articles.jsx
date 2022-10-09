@@ -6,21 +6,21 @@ import { Link } from 'react-router-dom';
 
 const Articles = () => {
     const [articles, setArticles] = useState([]);
-    //const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const {topic} = useParams();
 
     useEffect(() => {
         getArticles(topic)
         .then(({ articles}) => {
             setArticles(articles)
-            //setIsLoading(false);
+            setIsLoading(false);
         })
         .catch(err => {
             console.log(err);
     })
 }, [topic]);
 
-//if (isLoading) return <p className='loading'>Loading...</p>
+if (isLoading) return <p className='loading'>Loading...</p>
 
 return (
     <section>

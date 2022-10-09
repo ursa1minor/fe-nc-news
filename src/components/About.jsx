@@ -8,15 +8,6 @@ const About = () => {
         <br></br>
         <p className='about'>Northcoders News is brought to you today by Northcoders!</p>
         <br></br>
-        <br></br>
-        <br></br>
-        <Link className='about' to="/">About</Link>
-        <br></br>
-        <br></br>
-        <Link className='about' to="/articles/">Articles</Link>
-        <br></br>
-        <br></br>
-        <Link className='about' to="/topics">Topics</Link>
         </section>
     );
   };

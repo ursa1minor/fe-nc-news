@@ -5,20 +5,20 @@ import { Link } from 'react-router-dom';
 
 const Topics = () => {
     const [topics, setTopics] = useState([]);
-   // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
 useEffect(() => {
     getTopics()
     .then(({ topics }) => {
         setTopics(topics);
-        //setIsLoading(false);
+        setIsLoading(false);
     })
     .catch(err => {
         console.log(err)
     })
 }, []);
 
-//if (isLoading) return <p className='loading'>Loading...</p>
+if (isLoading) return <p className='loading'>Loading...</p>
 
 return (
     <section>
