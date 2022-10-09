@@ -58,4 +58,11 @@ export const getTopics = () => {
     })
 }
 
+export const getUsers = () => { 
+    return newsApi.get('/users')
+    .then((result) => {
+       return result.data;
+   })
+}
+
 
