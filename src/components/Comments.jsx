@@ -2,14 +2,13 @@ import "../App.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getComments, postComment } from "../utils/api";
-import { Link } from "react-router-dom";
-//import CommentAdder from './CommentAdder';
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
-  const [newComment, setNewComment] = useState('');
+  const [newCommentBody, setNewCommentBody] = useState("");
+  const [newComment, setNewComment] = useState({});
   const [commentPosted, setCommentPosted] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ const Comments = () => {
         setIsLoading(false);
         console.log(err);
       });
-  }, [article_id, commentPosted]);
+  }, [newComment]);
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
@@ -34,35 +33,29 @@ const Comments = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-        const body = {username: "jessjelly", body: newComment}
+    const body = { username: "jessjelly", body: newCommentBody };
     postComment(article_id, body)
-    .then(( ) => {
+    .then(( postedComment ) => {
         setCommentPosted(true);
-        return newComment
-   
- 
- 
-    })   
-   
-   setCommentPosted(false)   
-   setNewComment('') 
-};
+        setNewComment(postedComment)
+    })
+    setNewCommentBody("");
+  };
 
-return (
+  return (
     <section className="Comments">
-{/* <CommentAdder /> */}
 
-
-<form onSubmit={(event) => handleSubmit(event)}>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <label htmlFor="comment.body">Add a comment:</label>
-     <br></br>
-        <textarea  
-        value={newComment}
-        onChange={(event) => setNewComment(event.target.value)}></textarea>
-        <br></br><br></br>
+        <br></br>
+        <textarea
+          value={newCommentBody}
+          onChange={(event) => setNewCommentBody(event.target.value)}
+        ></textarea>
+        <br></br>
+        <br></br>
         <button>Add Comment</button>
-
-        </form>
+      </form>
       <ul>
         {comments.map((comment) => {
           return (
@@ -76,7 +69,6 @@ return (
       </ul>
     </section>
   );
-}
-
+};
 
 export default Comments;
