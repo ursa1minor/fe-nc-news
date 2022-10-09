@@ -1,9 +1,8 @@
 h1 {
   padding-left: 80px;
-  
 }
 
-section  {
+section {
   text-align: left;
   padding-left: 40px;
   padding-right: 80px;
@@ -19,7 +18,36 @@ section  {
 
 .CommentAdder {
   padding-left: 0px;
+}
 
+.user-list {
+  list-style-type: none;
+  margin-left: 60px;
+  margin-right: 60px;
+
+  padding-top: 20px;
+  text-align: center;
+}
+
+.user-list-text {
+  list-style-type: none;
+
+  text-align: center;
+}
+
+.user-img {
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+}
+
+#img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#img-wrapper > div {
+  flex: 0 1 33%;
 }
 
 .formLabel {
@@ -31,18 +59,15 @@ section  {
 
   margin-left: 40px;
   padding-right: 40px;
-  
 }
-
 
 .loading {
   text-align: left;
   padding-left: 80px;
   padding-top: 40px;
-
 }
 
-.about  {
+.about {
   text-align: left;
   padding-left: 40px;
 }
@@ -75,5 +100,5 @@ section  {
 
 button {
   margin-right: 20px;
-  background-color:rgb(144, 126, 209)
+  background-color: rgb(144, 126, 209);
 }

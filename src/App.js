@@ -7,6 +7,7 @@ import About from './components/About'
 import Articles from './components/Articles';
 import Topics from './components/Topics';
 import Article from './components/Article';
+import Users from './components/Users';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/about' element={<About />} />
       <Route path='/articles' element={<Articles />} />
       <Route path='/topics' element={<Topics />} />
+      <Route path='/users' element={<Users />} />
       <Route path='*' element={<p className="loading">404 not found!</p>} />  
       <Route path='/articles/:topic' element={<Articles />} />
       <Route path='/articles/article/:article_id' element={<Article />} />
