@@ -1,5 +1,6 @@
 h1 {
   padding-left: 80px;
+
 }
 
 section {
@@ -36,9 +37,22 @@ section {
 }
 
 .user-img {
-  width: 10em;
-  height: 10em;
+  width: 8em;
+  height: 8em;
   padding: 1em;
+  
+}
+
+.loggedIn-img {
+  width: 1.5em;
+  height: 1.5em;
+  padding-right: 2em;
+  padding-left: 3em;
+  padding-bottom: 0px;
+ 
+  vertical-align: middle;
+  align-self: right;
+
 }
 
 #img-wrapper {
@@ -81,15 +95,34 @@ section {
   background-color: rgb(198, 186, 241);
 }
 
+a {
+  color: black;
+}
+
 .li {
   display: block;
-  color: white;
+  color: rgb(0, 0, 0);
+  
   text-align: center;
   padding: 14px 40px;
 }
 
 /* Change the link color to #111 (black) on hover */
 .li a:hover {
+  background-color: rgb(140, 122, 122);
+  color: white;
+}
+
+.logout {
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: underline;
+  padding: 14px 40px;
+}
+
+/* Change the link color to #111 (black) on hover */
+.logout a:hover {
   background-color: rgb(140, 122, 122);
 }
 
