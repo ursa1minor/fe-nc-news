@@ -50,7 +50,7 @@ export const getComments = (article_id) => {
     })
 }
 
-export const delComment = (comment_id) => {
+export const deleteComment = (comment_id) => {
     return newsApi.delete(`/comments/${comment_id}`)
     .then((result) => {
         return result.data;

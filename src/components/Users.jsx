@@ -46,20 +46,14 @@ return (
 
             return (
                 <div id="img-wrapper">
-                    
-                        
-                            <div>
-                            <li className="user-list" key={loggedInUser.username}> 
-                            <img className="user-img" src={loggedInUser.avatar_url} /> </li>
+                    <div>
+                        <li className="user-list" key={loggedInUser.username}> 
+                        <img className="user-img" src={loggedInUser.avatar_url} /> </li>
                             
-                            <li className="user-list-text">{loggedInUser.name}</li>   
-
-                             {/* <User />             */}
-                            </div>
-                            
-                         
+                        <li className="user-list-text">{loggedInUser.name}</li>   
+                    </div>
                 </div>
-                );
+            );
 
         }
 };
