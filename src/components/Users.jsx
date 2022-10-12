@@ -2,10 +2,11 @@ import '../App.css';
 import { useEffect, useState, useContext } from 'react';
 import { getUsers } from '../utils/api';
 import { UserContext } from '../contexts/User';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import User from './User'
 
 const Users = () => {
+    const navigate = useNavigate()
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { setLoggedInUser, loggedInUser } = useContext(UserContext);
@@ -32,7 +33,7 @@ return (
                 <div>
                 <li className="user-list" key={user.username}> 
                 <img className="user-img" src={user.avatar_url} /> </li>
-                <Link onClick={() => setLoggedInUser(user)}>
+                <Link onClick={() => { setLoggedInUser(user); navigate(-1) }}>
                 <li className="user-list-text">{user.name}</li></Link>   
                           
                 </div>
