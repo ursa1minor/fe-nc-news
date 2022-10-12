@@ -8,7 +8,7 @@ const About = () => {
         <br></br>
         <strong><p className='about'>Northcoders News is brought to you today by Ursula Ackah in collaboration with Northcoders!</p></strong>
         <br></br>
-        <p className='about'>- View users on the <Link to="/users">Users</Link> page</p>
+        <p className='about'>- <Link to="/users">Log in</Link> as one of six users</p>
         <p className='about'>- View articles on the <Link to="/articles">Articles</Link> page</p>
         <p className='about'>- View articles by topic via the <Link to="/topics">Topics</Link> page</p>
         <p className='about'>- Vote for articles</p>

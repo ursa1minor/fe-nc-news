@@ -7,32 +7,19 @@ import { decreaseVote } from '../utils/api';
 import Comments from './Comments';
 
 const Article = () => {
-    //state variable article; updates using setArticle
-    // renders the article
+
     const [article, setArticle] = useState({});
-
-    //state variable votes; updates using setVotes
-    // Optimistic rendering function: renders the votes
     const [votes, setVotes] = useState(0); 
-
-    //state variable isLoading; updates using setIsLoading
     const [isLoading, setIsLoading] = useState(true);
-
-    //state variable hasUpVoted; updates using setHasUpVoted
     const [hasUpVoted, setHasUpVoted] = useState(false);
     const [hasDownVoted, setHasDownVoted] = useState(false); 
     
-    // useParams returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <Route path>
     const {article_id} = useParams();
 
-    //new function upVote uses useParams. 
-    //An article object has properties article_id and votes.
     const upVote = (article_id) => {
-        // if has not voted up
+
         if (!hasUpVoted) {
-        // Axios function increaseVote for the article with this article_id = backend
             increaseVote(article_id)
-        // Optimistic rendering
             setVotes((currVotes) =>
             currVotes + 1)
 

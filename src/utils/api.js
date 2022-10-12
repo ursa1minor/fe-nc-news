@@ -6,7 +6,7 @@ const newsApi = axios.create({
 
 export const getArticles = (topic) => {
     return newsApi
-        .get('/articles', { params: { topic: topic}})
+        .get('/articles', { params: { topic: topic }})
         .then((result) => {
             return result.data;
         })
@@ -39,7 +39,6 @@ export const postComment = (article_id, body) => {
     console.log(article_id, body)
     return newsApi.post(`/articles/${article_id}/comments`, body)
     .then((result) => {
-        console.log(result.data)
         return result.data;
     })
 }
@@ -47,6 +46,13 @@ export const postComment = (article_id, body) => {
 export const getComments = (article_id) => {
     return newsApi.get(`/articles/${article_id}/comments`)
     .then((result)  => {
+        return result.data;
+    })
+}
+
+export const delComment = (comment_id) => {
+    return newsApi.delete(`/comments/${comment_id}`)
+    .then((result) => {
         return result.data;
     })
 }
