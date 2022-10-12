@@ -2,8 +2,11 @@ import "../App.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getComments, postComment } from "../utils/api";
+import { useContext } from "react";
+import { UserContext } from "../contexts/User";
 
 const Comments = () => {
+  const { loggedInUser } = useContext(UserContext);
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { article_id } = useParams();
@@ -33,7 +36,7 @@ const Comments = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const body = { username: "jessjelly", body: newCommentBody };
+    const body = { username: loggedInUser.username, body: newCommentBody };
     postComment(article_id, body)
     .then(( postedComment ) => {
         setCommentPosted(true);
@@ -42,20 +45,38 @@ const Comments = () => {
     setNewCommentBody("");
   };
 
+  if (loggedInUser) {
+    return (
+      <section className="Comments">
+  
+        <form onSubmit={(event) => handleSubmit(event)}>
+          <label htmlFor="comment.body">Add a comment:</label>
+          <br></br>
+          <textarea
+            value={newCommentBody}
+            onChange={(event) => setNewCommentBody(event.target.value)}
+          ></textarea>
+          <br></br>
+          <br></br>
+          <button>Add Comment</button>
+        </form>
+        <ul>
+          {comments.map((comment) => {
+            return (
+              <li key={comment.article_id}>
+                <h4>By {comment.author}</h4>
+                <p>{comment.body}</p>
+                <p>{displayDate(comment.created_at)}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    );
+  } else {
+
   return (
     <section className="Comments">
-
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <label htmlFor="comment.body">Add a comment:</label>
-        <br></br>
-        <textarea
-          value={newCommentBody}
-          onChange={(event) => setNewCommentBody(event.target.value)}
-        ></textarea>
-        <br></br>
-        <br></br>
-        <button>Add Comment</button>
-      </form>
       <ul>
         {comments.map((comment) => {
           return (
@@ -70,5 +91,6 @@ const Comments = () => {
     </section>
   );
 };
+}
 
 export default Comments;
