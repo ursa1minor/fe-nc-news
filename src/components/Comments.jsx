@@ -1,7 +1,7 @@
 import "../App.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getComments, postComment } from "../utils/api";
+import { getComments, postComment, deleteComment } from "../utils/api";
 import { useContext } from "react";
 import { UserContext } from "../contexts/User";
 
@@ -13,6 +13,8 @@ const Comments = () => {
   const [newCommentBody, setNewCommentBody] = useState("");
   const [newComment, setNewComment] = useState({});
   const [commentPosted, setCommentPosted] = useState(false);
+  const [commentDeleted, setCommentDeleted] = useState(false);
+  const [flag, setFlag] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -25,7 +27,7 @@ const Comments = () => {
         setIsLoading(false);
         console.log(err);
       });
-  }, [newComment]);
+  }, [newComment, commentDeleted, flag]);
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
@@ -44,6 +46,15 @@ const Comments = () => {
     })
     setNewCommentBody("");
   };
+
+  const delComment = (comment_id) => {
+    deleteComment(comment_id)
+    .then(( {data} ) => {
+      setCommentDeleted(true)
+      console.log( data )
+    })
+    
+  }
 
   if (loggedInUser) {
     return (
@@ -67,6 +78,13 @@ const Comments = () => {
                 <h4>By {comment.author}</h4>
                 <p>{comment.body}</p>
                 <p>{displayDate(comment.created_at)}</p>
+                 
+                { loggedInUser.username === comment.author ? 
+                <button 
+                onClick={() => delComment(comment.comment_id)}
+                  >Delete</button> : null
+                }
+                
               </li>
             );
           })}
