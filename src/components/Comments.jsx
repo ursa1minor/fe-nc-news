@@ -12,9 +12,8 @@ const Comments = () => {
   const { article_id } = useParams();
   const [newCommentBody, setNewCommentBody] = useState("");
   const [newComment, setNewComment] = useState({});
-  const [commentPosted, setCommentPosted] = useState(false);
+  const [commentPosted, setCommentPosted] = useState(0);
   const [commentDeleted, setCommentDeleted] = useState(false);
-  const [flag, setFlag] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,7 +26,7 @@ const Comments = () => {
         setIsLoading(false);
         console.log(err);
       });
-  }, [newComment, commentDeleted, flag]);
+  }, [newComment, commentDeleted]);
 
   if (isLoading) return <p className="loading">Loading...</p>;
 
@@ -50,7 +49,7 @@ const Comments = () => {
   const delComment = (comment_id) => {
     deleteComment(comment_id)
     .then(( {data} ) => {
-      setCommentDeleted(true)
+      setCommentDeleted(commentDeleted + 1)
       console.log( data )
     })
     
