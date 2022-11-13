@@ -2,7 +2,10 @@ Welcome to my version of Northcoders News!
 
 Project Description:
 
-This Northcoders News user interface was created using the React open-source front-end JavaScript library; the UI interacts with Northcoders News API, which is currently hosted on Heroku at https://ursula-nc.herokuapp.com/.
+This Northcoders News user interface was created using the React open-source front-end JavaScript library and the application is linked here:
+https://uackah-nc-news.netlify.app/
+
+The UI interacts with Northcoders News API, which is currently hosted on Heroku at https://ursula-nc.herokuapp.com/.
 
 The GitHub repo for the API is https://github.com/ursa1minor/nc-news.
 
